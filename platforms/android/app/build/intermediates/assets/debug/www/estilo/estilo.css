@@ -1,0 +1,119 @@
+.fundo-verde{
+    background-color: #195128;
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.fundo-branco{
+    background-color: white;
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.fundo-snow{
+    background-color: snow;
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.corpo{
+    position: absolute;
+    background-color: white;
+    width: 95%;
+    height: 85%;
+    margin: 2.5%;
+    left: 1px;
+}
+
+.borda-redonda-10px{
+    border-radius: 20px;  
+    padding: 2px;
+}
+
+.iframeIndex{
+    border: none;
+    width:100%;
+    height: 100%;
+    min-height:100%;
+}
+
+.ImagemLogoIF{
+    width: 50%;
+    max-width: 200px;
+    margin-top: 5%;
+}
+
+.ImagemLogoFSW{
+    
+    height: auto;
+    max-width: 100%;
+    
+}
+
+#login{
+    position: absolute;
+    width: 60%;
+    height: auto;
+
+    left: 20%;
+    text-align: center;
+}
+
+.bttLogin{
+
+    background-color: #8bce03;
+
+}
+
+.div-100{
+    height: auto;
+}
+
+
+
+fieldset{
+
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: black;
+
+}
+
+.buttonStatus{
+    padding-right: 153px;
+
+}
+
+
+
+.btn-1{
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+}
+
+
+.btn-2{
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.divHorario{
+    margin-left: -20px;
+}
+
+
+#homediv{
+    height: auto;
+}
+
+

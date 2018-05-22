@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="estilo/estilo.css" rel="stylesheet">
+        <link href="bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+
+    </head>
+    <body class="fundo-branco">
+
+       
+            <div class='' id="homediv">    
+
+                <div class="container" align="center">
+                    <img class="ImagemLogoIF" src="imgs/ifg.png" alt="Responsive image">
+                </div>
+
+                <!--Início da tela de Login -->
+                <br>
+                
+                <div class="" id="login">
+                    <h1 class="h5 mb-3 font-weight-normal text-center">Bem Vindo!</h1>
+                    <label for="inputNumber" class="sr-only">Usuário</label>
+                    <input id="inputNumber" maxlength="7" class="form-control" placeholder="Usuário do SUAP" required="" autofocus="" type="text" onkeypress='return SomenteNumero(event)'>
+                    <label for="inputPassword" class="sr-only">Senha</label>
+                    <input id="inputPassword" class="form-control" placeholder="Senha" required="" type="password">
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input value="remember-me" type="checkbox"> Lembrar senha
+                        </label>
+                    </div>
+                    <a class="btn btn-dark btn-block nav-link" href="menuBoasVindas.html">Entrar</a> 
+                                      
+                </div>
+
+                <!--Fim da tela de Login -->
+
+            </div>
+        
+        <script src="javascript/javascript.js"></script> 
+    </body>
+
+</html>

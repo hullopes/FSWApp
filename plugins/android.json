@@ -1,0 +1,18 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "es.esy.profvictorhugo.FSWApp"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "es.esy.profvictorhugo.AppFSW"
+    }
+  },
+  "dependent_plugins": {}
+}
