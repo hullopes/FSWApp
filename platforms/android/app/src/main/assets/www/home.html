@@ -1,48 +1,60 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title></title>
+    <head>   
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="estilo/estilo.css" rel="stylesheet">
-        <link href="bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+        <script src="cordova.js"></script>
+        <script src="cordova_plugins.js"></script>
+        <script src="javascript/jquery-3.3.1.min.js" ></script>
+        <script type="text/javascript">
+            var nomeU;
+            var idU;
+            var storage= window.localStorage;
 
-
+            $(document).on("deviceready", init); 
+            function init(){
+                nomeU = storage.getItem("nomeU");
+                idU = storage.getItem("idU");
+                $("#msgBoas").append("Seja bem vindo(a), "+nomeU);        
+            }
+        </script>
     </head>
-    <body class="fundo-branco">
 
-       
-            <div class='' id="homediv">    
+    <body class="home fundo-verde">
 
-                <div class="container" align="center">
-                    <img class="ImagemLogoIF" src="imgs/ifg.png" alt="Responsive image">
-                </div>
-
-                <!--Início da tela de Login -->
-                <br>
+        <div class="container">
+            <div class='portaConteudo borda-redonda fundo-branco iframeIndex'>    
                 
-                <div class="" id="login">
-                    <h1 class="h5 mb-3 font-weight-normal text-center">Bem Vindo!</h1>
-                    <label for="inputNumber" class="sr-only">Usuário</label>
-                    <input id="inputNumber" maxlength="7" class="form-control" placeholder="Usuário do SUAP" required="" autofocus="" type="text" onkeypress='return SomenteNumero(event)'>
-                    <label for="inputPassword" class="sr-only">Senha</label>
-                    <input id="inputPassword" class="form-control" placeholder="Senha" required="" type="password">
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input value="remember-me" type="checkbox"> Lembrar senha
-                        </label>
-                    </div>
-                    <a class="btn btn-dark btn-block nav-link" href="menuBoasVindas.html">Entrar</a> 
-                                      
+                <div class="MensagemBoasVindas container" align="left">
+                    <h3>Bem-vindo</h3>
+                </div>
+                <div class="mensagemTexto container">
+                    <p id="msgBoas"></p>
+                    <p>Você está no SARA - Sistema de Alocação de Recursos Acadêmicos</p>
                 </div>
 
-                <!--Fim da tela de Login -->
+                <div class="menuBoasVindas container" align="letf">
+                    <a class="btn btn-dark btn-primary btn-block nav-link" href="selecaoRecurso.html">Efetuar reservas</a>
+                    <br>
+                    <a class="btn btn-dark btn-primary btn-block nav-link" href="minhasReservas.html">Minhas reservas</a>
+                    <br>
+                    <a class="btn btn-warning btn-block nav-link" href="home.html">Desconectar</a>
+                </div>
+            </div>   
+
+                    
+
 
             </div>
-        
-        <script src="javascript/javascript.js"></script> 
+            <img class="ImagemLogoFSW img-fluid" src="imgs/fswlogo.png" alt="Logo Acadêmica FSW"/>
+        </div>    
+
+
+
     </body>
 
 </html>

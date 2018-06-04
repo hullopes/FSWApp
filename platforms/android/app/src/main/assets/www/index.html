@@ -4,22 +4,159 @@
     <head>   
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="estilo/estilo.css" rel="stylesheet">
-        <link href="bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+        <script src="cordova.js"></script>
+        <script src="cordova_plugins.js"></script>
+        <script src="javascript/jquery-3.3.1.min.js" ></script>
+        <script type="text/javascript">
+            var nomeU;
+            var idU;
+            var storage = window.localStorage;
+
+            $(document).on("deviceready", init); 
+            function init(){
+                navigator.splashscreen.hide();
+                $.support.cors                 = true;
+                $.mobile.allowCrossDomainPages = true;
+                $.mobile.pushStateEnabled      = false;
+            }
+            
+            function entrar(){
+                //
+                if($("#inputNumber").val()=="" || $("#inputPassword").val()==""){
+                    navigator.notification.alert(
+                        'Preencha Todos os Campos!',  // message
+                        alertDismissed,         // callback
+                        'Ops!',            // title
+                        'Done'                  // buttonName
+                    );
+                }else{
+                    n = $("#inputNumber").val();
+                    p = $("#inputPassword").val();
+                    doLogin2(n, p);                   
+                }
+                return null;
+            }
+            function doLogin2(nu,pu){
+                window.plugins.spinnerDialog.show("Aguarde","Checando Credenciais");
+                cordovaHTTP.get("http://profvictorhugo.esy.es/WS/FSWApp/loginWS.php",{
+                    user: nu,
+                    pass: pu
+                },{Authorization: "OAuth2: token"}, function(response){
+                    window.plugins.spinnerDialog.hide();
+                    //response.data = JSON.parse(response.data); 
+                    trataDadosLogin(response.data);
+                },function(response){
+                    alert(response.error);
+                    alert(response.status)
+                    window.plugins.spinnerDialog.hide();
+                });
+            }
+            function doLogin(nu,pu){
+                $.support.cors;
+                $.ajax({
+                    beforeSend: function() { window.plugins.spinnerDialog.show("Aguarde","Checando Credenciais"); }, 
+                    complete: function() { window.plugins.spinnerDialog.hide(); },
+                    url: "http://profvictorhugo.esy.es/WS/FSWApp/loginWS.php",   
+                    headers: {"Content-Type":"application/json; charset=UTF-8"},                     
+                    data: { user: nu, pass: pu},
+                    type: "GET", 
+                    dataType: "json",
+                    crossDomain: true,
+                    cache: false,                      
+                    success: function(data) {            
+                        trataDadosLogin(data);                  
+                    },                      
+                    error: function (jqXHR, exception) {
+                        var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                         window.plugins.spinnerDialog.hide();
+                        alert(msg);
+                    }
+                });
+            }
+            function trataDadosLogin(data){
+                    var response=$.parseJSON(data);
+                    if(response.mensagem.numReg>0){
+                        setNomeU(response.dados[0].nome);
+                        setIdU(response.dados[0].idUsuario);
+                        login();
+                    }else{
+                        navigator.notification.alert(
+                            'Dados não encontrados',  // message
+                            alertDismissed,         // callback
+                            'Ops!',            // title
+                            'Done'                  // buttonName
+                        );
+                    }    
+            }
+            function setNomeU(nu){
+                nomeU = nu;
+                storage.setItem("nomeU",nomeU);
+            }
+            function setIdU(iu){
+                idU = iu;
+                storage.setItem("idU",idU);
+            }
+            function login(){
+
+                window.location="home.html";
+            }
+            function alertDismissed() {
+                // do something
+            }
+        </script>
     </head>
 
-    <body class="fundo-verde">
+    <body class="home fundo-verde">
 
+        <div class="container">
+            <div class='portaConteudo borda-redonda fundo-branco iframeIndex'>    
+                
+                <div class='' id="homediv">    
 
+                    <div class="container" align="center">
+                        <img class="ImagemLogoIF" src="imgs/ifg.png" alt="Responsive image">
+                    </div>
 
-        <div class=' corpo borda-redonda-10px'>    
-            
-            <iframe src='home.html' class=' iframeIndex borda-redonda-10px'></iframe>
-            
-            <img class="container ImagemLogoFSW img-fluid" src="imgs/fswlogo.png" alt="Logo academica FSW"/>
+                    <!--Início da tela de Login -->
+                    <br>
+                
+                    <div class="container">
+                        <form id="formLogin" onsubmit="return false;">
+                            <h3>Acesso</h3>
+                            
+                            <input id="inputNumber" maxlength="7" class="form-control" placeholder="Usuário do SUAP" required="required" autofocus="" type="number" pattern="[0-9]{7}" inputmode="numeric">
+                            <br>
+                            <input id="inputPassword" class="form-control" placeholder="Senha" required="" type="password">
+                            <br>
+                            <input class="btn btn-dark btn-block nav-link"  type="submit" onClick="entrar();" value="Entrar">
+                        </form>                  
+                    </div>
 
-        </div>
+                <!--Fim da tela de Login -->
+
+            </div>
+
+            </div>
+            <img class="ImagemLogoFSW img-fluid" src="imgs/fswlogo.png" alt="Logo Acadêmica FSW"/>
+        </div>    
 
 
 

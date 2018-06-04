@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FSWApp - Seleção de Recursos Acadêmicos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="estilo/estilo.css" rel="stylesheet">
+        <script src="cordova.js"></script>
+        <script src="cordova_plugins.js"></script>
+        <script src="javascript/jquery-3.3.1.min.js" ></script>
+
+        <script type="text/javascript">
+            var nomeU;
+            var idU;
+            var storage = window.localStorage;
+
+            $(document).on("deviceready", init);
+              
+            function init(){                
+                getResourcesData();
+            }
+            function getResourcesData(){
+                alert("as");
+                window.plugins.spinnerDialog.show("Aguarde","Carregando Recursos Acadêmicos");
+                cordovaHTTP.post("http://profvictorhugo.esy.es/WS/FSWApp/recursosWS.php",{Authorization: "OAuth2: token"}, function(response){
+                    window.plugins.spinnerDialog.hide();
+                    //response.data = JSON.parse(response.data); 
+                    trataDados(response.data);
+                },function(response){
+                    alert(response.error);
+                    alert(response.status)
+                    window.plugins.spinnerDialog.hide();
+                });
+            }
+            function trataDados(response){
+                var response=$.parseJSON(data);
+                alert(response.mensagem.numReg)
+            }
+        </script>
+    </head>
+    <body class="home fundo-verde">
+
+        <div class="container">
+            <div class='portaConteudo borda-redonda fundo-branco iframeIndex'>    
+
+                    <div class="container">
+                        <h3>Fazer Reservas</h3> 
+                    </div>
+
+                    <form>
+
+                        <div class="container">
+                            <legend>Consultas</legend>
+                            <b>Recurso Acadêmico</b>
+                            <br>
+                            <select class="form-control form-control-lg">
+                                <option selected>Selecione</option>                            
+                            </select>
+                            <br>
+                            <a class="btn btn-dark btn-primary btn-block nav-link" href="diaHorarios.html">Consultar</a>   
+                            
+                            <br>
+                            <a class="btn btn-primary btn-block nav-link" href="home.html">Voltar</a>
+
+                        </div>
+                    </form>
+
+            </div>
+             <img class="ImagemLogoFSW img-fluid" src="imgs/fswlogo.png" alt="Logo Acadêmica FSW"/>
+        </div>
+
+
+    </body>
+
+</html>

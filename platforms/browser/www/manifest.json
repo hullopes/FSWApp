@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "FSWApp",
+  "short_name": "FSWApp",
+  "version": "es.esy.profvictorhugo.AppFSW",
+  "description": "Aplicativo de acesso aos recursos da Fábrica de Software Acadêmica, do Câmpus Inhumas do IFG.",
+  "author": "Equipe FSW Acadêmica - Coordenação Prof. Elymar P. Cabral",
+  "icons": [],
+  "orientation": "portrait",
+  "start_url": "index.html"
+}

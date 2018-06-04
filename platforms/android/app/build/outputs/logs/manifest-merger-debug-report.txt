@@ -1,13 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-14:12
-INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-14:12
-INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-14:12
-INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-14:12
+ADDED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-15:12
 MERGED from [:CordovaLib] /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
-INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-14:12
-INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-14:12
-INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-14:12
+INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-15:12
+INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:1-15:12
 	package
 		ADDED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:2:102-140
 		INJECTED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml
@@ -88,3 +88,7 @@ MERGED from [:CordovaLib] /home/tatuapu/NetBeansProjects/FSWApp/platforms/androi
 		ADDED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:13:42-71
 	android:minSdkVersion
 		ADDED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:13:15-41
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:14:5-81
+	android:name
+		ADDED from /home/tatuapu/NetBeansProjects/FSWApp/platforms/android/app/src/main/AndroidManifest.xml:14:22-78

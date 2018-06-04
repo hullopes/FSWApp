@@ -1,0 +1,94 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-spinner-dialog",
+      "/home/tatuapu/NetBeansProjects/FSWApp"
+    ]
+  ],
+  "_from": "cordova-plugin-spinner-dialog@latest",
+  "_id": "cordova-plugin-spinner-dialog@1.3.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cordova-plugin-spinner-dialog",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "email": "public@dpal.hu",
+    "name": "paldom"
+  },
+  "_npmVersion": "2.11.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "cordova-plugin-spinner-dialog",
+    "raw": "cordova-plugin-spinner-dialog",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-spinner-dialog/-/cordova-plugin-spinner-dialog-1.3.1.tgz",
+  "_shasum": "3a8a1eb24018e1dfcbe4d9519753680298defd89",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-spinner-dialog",
+  "_where": "/home/tatuapu/NetBeansProjects/FSWApp",
+  "author": {
+    "email": "public@dpal.hu",
+    "name": "Domonkos Pal",
+    "url": "https://github.com/Paldom"
+  },
+  "bugs": {
+    "url": "https://github.com/Paldom/SpinnerDialog/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-spinner-dialog",
+    "platforms": [
+      "android",
+      "ios",
+      "wp8"
+    ]
+  },
+  "dependencies": {},
+  "description": "PhoneGap / Cordova waiting dialog (progress indicator) plugin with spinner for Android, iOS and Windows Phone 8. Maintained from original Paldom/SpinnerDialog repository.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "3a8a1eb24018e1dfcbe4d9519753680298defd89",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-spinner-dialog/-/cordova-plugin-spinner-dialog-1.3.1.tgz"
+  },
+  "gitHead": "72e7e04cfacc3085db43a1534c98951431fef328",
+  "homepage": "https://github.com/Paldom/SpinnerDialog#readme",
+  "keywords": [
+    "android",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-wp8",
+    "dialog",
+    "ecosystem:cordova",
+    "indicator",
+    "ios",
+    "phone",
+    "phonegap",
+    "progress",
+    "spinner",
+    "windows",
+    "wp8"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "paldom",
+      "email": "public@dpal.hu"
+    }
+  ],
+  "name": "cordova-plugin-spinner-dialog",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paldom/SpinnerDialog.git"
+  },
+  "scripts": {},
+  "version": "1.3.1"
+}

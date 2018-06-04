@@ -1,71 +1,103 @@
 <!DOCTYPE html>
-
 <html>
     <head>
-        <title></title>
+        <title>FSWApp - Seleção de Recursos Acadêmicos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="estilo/estilo.css" rel="stylesheet">
-        <link href="bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+        <script src="cordova.js"></script>
+        <script src="cordova_plugins.js"></script>
+        <script src="javascript/jquery-3.3.1.min.js" ></script>
 
+        <script type="text/javascript">
+            var nomeU;
+            var idU;
+            var recu_id = -1;
+            var recu_nome = "";
+            var storage = window.localStorage;
 
+            $(document).on("deviceready", init);
+              
+            function init(){                
+                getResourcesData();
+                $("#select-rec").change(function() {
+                  recu_id=$(this).val();
+                  recu_nome=$(this).text();
+                  storage.setItem("recu_id",recu_id);
+                  storage.setItem("recu_nome",recu_nome);
+                });
+            }
+            function getResourcesData(){
+                window.plugins.spinnerDialog.show("Aguarde","Carregando Recursos Acadêmicos");
+                cordovaHTTP.get("http://profvictorhugo.esy.es/WS/FSWApp/recursosWS.php",{
+                    prop: ""
+                },{Authorization: "OAuth2: token"}, function(response){
+                    window.plugins.spinnerDialog.hide();
+                    //response.data = JSON.parse(response.data); 
+                    //alert(response.data.mensagem.numReg);
+                    trataDados(response.data);
+                },function(response){
+                    alert(response.error);
+                    alert(response.status)
+                    window.plugins.spinnerDialog.hide();
+                });
+            }
+            function trataDados(data){
+                var response=$.parseJSON(data);
+                var dropdown = $('#select-rec');
+                $.each(response.dados, function (key, entry) {
+                    dropdown.append($('<option></option>').attr('value', entry.recu_id).text(entry.recu_nome));
+                  })
+            }
+            function consultarRec(){
+                alert("entrou - " + recu_id);
+                if(recu_id=="-1"){
+                    alert("entrou 2");
+                    navigator.notification.alert(
+                            'Selecione um recurso',  // message
+                            alertDismissed,         // callback
+                            'Ops!',            // title
+                            'Done'                  // buttonName
+                        );
+                }else{
+                    alert(recu_id);
+                }
+                return null;    
+            }
+            function alertDismissed() {
+                // do something
+            }
+        </script>
     </head>
-    <body>
+    <body class="home fundo-verde">
 
-        <div class='row'>
-            <div class='corpo col-md-12 borda-redonda-10px '>   
+        <div class="container">
+            <div class='portaConteudo borda-redonda fundo-branco iframeIndex'>    
 
-                <div class="selecaoRecurso" align="left">
-                    <br>
-                    <div class="" align="center">
-                        <h3> <b>Alocação de Recursos Acadêmicos</b></h3> 
+                    <div class="container">
+                        <h3>Fazer Reservas</h3> 
                     </div>
-                    <br>
-                    <form>
 
-                        <fieldset id=”fieldset”>
+
+                        <div class="container">
                             <legend>Consultas</legend>
                             <b>Recurso Acadêmico</b>
                             <br>
-                            <select class="custom-select">
-                                <option selected>---Selecione um recurso---</option>
-                                <option value="1">Energia e Meio Ambiente</option>
-                                <option value="2">Laboratório de Anaĺise Sensorial</option>
-                                <option value="3">Laboratório de Biologia</option>
-                                <option value="4">Laboratório de Bromatologia</option>
-                                <option value="5">Laboratório de Informática 1</option>
-                                <option value="6">Laboratório de Informática 2</option>
-                                <option value="7">Laboratório de Informática 3</option>
-                                <option value="8">Laboratório de Informática 4</option>
-                                <option value="9">Laboratório de Leite e Derivados</option>
-                                <option value="10">Laboratório de Manutenção</option>
-                                <option value="11">Laboratório de Microbiologia</option>
-                                <option value="12">Laboratório de Panificação</option>
-                                <option value="13">Laboratório de Química 1</option>
-                                <option value="14">Laboratório de Química 2</option>
-                                <option value="15">Laboratório de Tecnologia de Carnes</option>
-                                <option value="16">Laboratório de Tecnologia de Frutas e Hortaliças</option>
-                                <option value="17">Laboratório de Mini Usina</option>
-                                <option value="18">LOUSA DIGITAL-01 </option>
-                                <option value="19">LOUSA DIGITAL-02 </option>
+                            <select class="form-control form-control-lg" id="select-rec">
+                                <option selected value='-1'>Selecione</option>                            
                             </select>
+                            <br>
+                            <button class="btn btn-dark btn-primary btn-block nav-link" onClick="consultarRec();">Consultar</button>   
+                            
+                            <br>
+                            <a class="btn btn-primary btn-block nav-link" href="home.html">Voltar</a>
 
+                        </div>
+                    
 
-
-
-                            <div class="botao" align="center">
-                                <br>
-                                <a class="btn btn-dark btn-primary btn-block nav-link" href="diaHorarios.html">CONSULTAR</a>   
-                            </div>
-                            <a href="menuBoasVindas.html">Voltar</a>
-
-
-                        </fieldset>
-                    </form>
-
-                </div>
             </div>
+             <img class="ImagemLogoFSW img-fluid" src="imgs/fswlogo.png" alt="Logo Acadêmica FSW"/>
         </div>
 
 
